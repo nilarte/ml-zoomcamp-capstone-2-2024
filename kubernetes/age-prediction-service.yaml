@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: age-prediction
+  labels:
+    app: age-prediction
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: age-prediction
+  template:
+    metadata:
+      labels:
+        app: age-prediction
+    spec:
+      containers:
+      - name: age-prediction
+        image: ghcr.io/nilarte/age_prediction
+        ports:
+        - containerPort: 5000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: age-prediction-service
+spec:
+  type: LoadBalancer        # Change type to LoadBalancer
+  selector:
+    app: age-prediction
+  ports:
+  - protocol: TCP
+    port: 5000             # The port accessible inside the cluster
+    targetPort: 5000       # The port your app is listening to inside the container
