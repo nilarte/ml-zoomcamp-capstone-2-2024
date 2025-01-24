@@ -1,14 +1,13 @@
-FROM public.ecr.aws/lambda/python:3.10
+FROM python:3.12.1
 
-RUN pip install flask
-RUN pip install gunicorn
-RUN pip install keras-image-helper
-#RUN pip install https://github.com/alexeygrigorev/tflite-aws-lambda/raw/main/tflite/tflite_runtime-2.14.0-cp310-cp310-linux_x86_64.whl
-RUN pip install tensorflow
+WORKDIR /app
 
-COPY model.tflite .
-COPY predict.py .
+COPY ["requirements.txt", "./"]
+
+RUN pip install --no-cache-dir -r ./requirements.txt
+
+COPY ["app.py", "model.tflite", "./"]
 
 EXPOSE 5000
 
-ENTRYPOINT ["gunicorn", "--bind=0.0.0.0:5000", "predict:app"]
+CMD ["python", "app.py"]
