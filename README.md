@@ -8,7 +8,7 @@ Dataset credit: https://www.kaggle.com/datasets/goubeast/age-prediction-av
 
 This model has different potential use cases:
 
-Ex: Preferential access to senior citizens on face recognition etc.
+Ex: Preferential access to senior citizens based on face recognition etc.
 
 Here are step by step details about how we build optimal model to predict young or old probability. 
 
@@ -23,7 +23,7 @@ We also use this script to split data in train and test folders in 75 % and 25 %
 
 Here is the final tree strucure of data: [data](./data)
 
-Note we have ommited middle age images data for simplicity purpose.
+Note: we have ommited middle age images data for simplicity purpose.
 ```bash
 data
 ├── test
