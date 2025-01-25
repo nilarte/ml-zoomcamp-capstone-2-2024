@@ -118,4 +118,4 @@ https://images.pexels.com/photos/1474705/pexels-photo-1474705.jpeg?auto=compress
  
 You can observe loaded image and age predicted. 
 
-[local-ui.png](./local-ui.png)
+Example screenshot: [local-ui.png](./local-ui.png)
