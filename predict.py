@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 #import tflite_runtime.interpreter as tflite
 import tensorflow.lite as tflite
+import tensorflow as tf
 from keras_image_helper import create_preprocessor
 
 # Initialize Flask app
@@ -32,7 +33,8 @@ def predict(url):
 
         # Get the prediction
         pred = interpreter.get_tensor(output_index)
-        return pred[0]
+        probabilities = tf.nn.softmax(pred[0]).numpy()
+        return probabilities
     except Exception as e:
         return {"error": str(e)}
 

@@ -13,18 +13,23 @@ output_index = interpreter.get_output_details()[0]['index']
 
 preprocessor = create_preprocessor('xception', target_size=(200, 200))
 
-#url = 'https://raw.githubusercontent.com/nilarte/ml-zoomcamp-capstone-2-2024/refs/heads/main/data/test/young/10056.jpg'
 def predict(url):
     X = preprocessor.from_url(url)
 
     interpreter.set_tensor(input_index, X)
     interpreter.invoke()
     pred = interpreter.get_tensor(output_index)
-    #probabilities = tf.nn.softmax(pred[0]).numpy()
-    #print(probabilities)
-    return pred[0]
+    probabilities = tf.nn.softmax(pred[0]).numpy()
+    return probabilities
 
+# Main function
+def main():
+    url = 'https://raw.githubusercontent.com/nilarte/ml-zoomcamp-capstone-2-2024/refs/heads/main/data/test/young/10056.jpg'
+    probabilities = predict(url)
+    print(f"Predictions: {probabilities}")
 
+if __name__ == "__main__":
+    main()
 
 
 
