@@ -119,3 +119,15 @@ https://images.pexels.com/photos/1474705/pexels-photo-1474705.jpeg?auto=compress
 You can observe loaded image and age predicted. 
 
 Example screenshot: [local-ui.png](./local-ui.png)
+
+## 7. Cloud and Kubernetes deployment
+We have also deployed webservice on GKE Google Kubernetes Engine Cluster.
+
+Connect to webservice here: http://34.47.236.110:5000/
+
+Rest of the steps are same as Docker section.
+
+Here is the kubernetes deployment and service file: [age-prediction-service.yaml](./kubernetes/age-prediction-service.yaml)
+
+## 8. Demo
+Short demo pending
