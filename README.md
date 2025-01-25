@@ -55,3 +55,67 @@ Here is a jupyter notebook which uses model.tflite and does prediction.
 And converted python script:
 
 [tf_lite.py](./tf_lite.py)
+
+## 4. Serving model locally via flask webservice
+Run [predict.py](./predict.py) 
+
+It will run prediction as websrive at url: http://localhost:5000/predict
+
+We can test it by passing any valid url to face image and check prediction of age (Old or Young)
+
+Here are some face image urls: [example-image-links](./example-image-links.txt)
+
+Example:
+```bash
+curl -X POST -H "Content-Type: application/json" -d '{"url": "https://raw.githubusercontent.com/nilarte/ml-zoomcamp-capstone-2-2024/refs/heads/main/data/test/young/10056.jpg"}' http://localhost:5000/predict
+```
+
+You can see probabilty of person in the image if they are old or young.
+
+For above example probabilty is very high for young (arround 93%)
+```bash
+{
+  "predictions": [
+    0.06372705847024918,
+    0.9362729787826538
+  ]
+}
+```
+
+## 5. Dependency and environment management
+Here is the [Pipfile](./Pipfile) and [Pipfile.lock](./Pipfile.lock) file to manage dependencies like flask, keras-image-helper, tensorflow, gradio etc.
+
+## 6. Cotainerization and Deploying via docker
+Maintain all dependencies and run gradio based UI application to predict age.
+[Dockerfile](./Dockerfile)
+
+Pull docker container from public docker image at github registry
+
+```bash
+docker pull ghcr.io/nilarte/age_prediction
+```
+
+Or simply build local image using Dockerfile
+```bash
+docker build -t  . age_prediction
+```
+
+Then run:
+```bash
+docker run -d -p 5000:5000 ghcr.io/nilarte/age_prediction
+```
+You can access UI at http://localhost:5000/ in browser
+
+Note: if above URL does not load right away wait for 2-3 mins to load.
+
+Model is slightly bigger and container takes time to run fully. 
+
+Input image URL and hit submit.
+
+For example with this url from [example-image-links.txt](./example-image-links.txt)
+
+https://images.pexels.com/photos/1474705/pexels-photo-1474705.jpeg?auto=compress&cs=tinysrgb&w=600
+ 
+You can observe loaded image and age predicted. 
+
+[local-ui.png](./local-ui.png)
