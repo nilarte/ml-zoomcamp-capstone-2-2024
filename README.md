@@ -154,4 +154,4 @@ Rest of the steps are same as Docker section.
 Here is the kubernetes deployment and service file: [age-prediction-service.yaml](./kubernetes/age-prediction-service.yaml)
 
 ## 8. Demo
-Short demo can be downloaded and watched: ![demo.mp4](./demo.mp4)
+Short demo can be downloaded and watched: [demo.mp4](./demo.mp4)
