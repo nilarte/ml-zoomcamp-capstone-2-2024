@@ -1,3 +1,4 @@
 https://raw.githubusercontent.com/nilarte/ml-zoomcamp-capstone-2-2024/refs/heads/main/data/test/young/10056.jpg
+https://images.pexels.com/photos/30345267/pexels-photo-30345267/free-photo-of-stylish-portrait-of-woman-with-curly-hair-in-rabat.jpeg?auto=compress&cs=tinysrgb&w=600
 https://images.pexels.com/photos/1474705/pexels-photo-1474705.jpeg?auto=compress&cs=tinysrgb&w=600
 https://images.pexels.com/photos/1539702/pexels-photo-1539702.jpeg?auto=compress&cs=tinysrgb&w=600
