@@ -41,6 +41,30 @@ https://app.community.saturnenterprise.io/
 
 On CPU it will be very slow and prone to crash.
 
+Note: We have also put code to build model from scratch but we haven't really used it.
+
+We are mainly using transfer learning using pretrained base model as follows.
+
+### 2.1 Base model
+We are using Xception model as base model which is pretrained on imagenet dataset
+### 2.2 Inner layer
+We use inner layer with `relu` activation
+### 2.3 Output layer
+we add an output layer with two neurons since we are classifying images into two classes (e.g., "young" vs. "old").
+### 2.4 Compile model
+We use `Adam` optimizer
+
+### 2.5 Find best learning rate
+![best-learning-rate.png](./pictures/best-learning-rate.png)
+Best learning rate is 0.001
+
+### 2.6 Find best inner layer size
+![pictures/best-inner-layer-size.png](./pictures/best-inner-layer-size.png)
+Best inner layer size is 100
+
+### 2.7 Data Augmentation
+We add more flavors to data by shifing, rotating, flipping images
+ 
 ## 3. Saving model
 We saved models with checkpoint.
 
@@ -118,7 +142,7 @@ https://images.pexels.com/photos/1474705/pexels-photo-1474705.jpeg?auto=compress
  
 You can observe loaded image and age predicted. 
 
-Example screenshot: [local-ui.png](./local-ui.png)
+Example screenshot: ![local-ui.png](./pictures/local-ui.png)
 
 ## 7. Cloud and Kubernetes deployment
 We have also deployed webservice on GKE Google Kubernetes Engine Cluster.
