@@ -64,7 +64,7 @@ Best inner layer size is 100
 
 ### 2.7 Data Augmentation
 We add more flavors to data by shifing, rotating, flipping images
- 
+
 ## 3. Saving model
 We saved models with checkpoint.
 
@@ -154,4 +154,4 @@ Rest of the steps are same as Docker section.
 Here is the kubernetes deployment and service file: [age-prediction-service.yaml](./kubernetes/age-prediction-service.yaml)
 
 ## 8. Demo
-Short demo pending
+Short demo can be downloaded and watched: ![demo.mp4](./demo.mp4)
