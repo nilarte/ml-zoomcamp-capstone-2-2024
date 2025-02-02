@@ -62,8 +62,17 @@ Best learning rate is 0.001
 ![pictures/best-inner-layer-size.png](./pictures/best-inner-layer-size.png)
 Best inner layer size is 100
 
-### 2.7 Data Augmentation
+### 2.7 Find the best drop out rate
+![best-drop-rate.png](./pictures/best-drop-rate.png)
+Best drop rate is 0.002
+
+### 2.8 Data Augmentation
 We add more flavors to data by shifing, rotating, flipping images
+
+### 2.9 Using the best learning rate, inner size and drop rate and checkpointing
+We use the best learning rate, inner size and drop rate values and create model. 
+
+We train and checkpoint this model.
 
 ## 3. Saving model
 We saved models with checkpoint.
